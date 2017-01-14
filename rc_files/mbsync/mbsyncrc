@@ -1,0 +1,45 @@
+IMAPAccount gmail
+Host imap.gmail.com
+User m.othacehe@gmail.com
+Pass bastien64200
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+AuthMech LOGIN
+
+IMAPAccount parrot
+Host imap.aswsp.com
+User mathieu.othacehe@parrot.com
+Pass Parrot2016
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+AuthMech LOGIN
+
+IMAPStore gmail-remote
+Account gmail
+
+IMAPStore parrot-remote
+Account parrot
+
+MaildirStore gmail-local
+Path ~/mail/gmail/
+Inbox ~/mail/gmail/INBOX
+
+MaildirStore parrot-local
+Path ~/mail/parrot/
+Inbox ~/mail/parrot/INBOX
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns "INBOX" "Personnel/linux-usb" "Personnel/guix"
+Create Both
+Expunge Both
+SyncState *
+
+Channel parrot
+Master :parrot-remote:
+Slave :parrot-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *

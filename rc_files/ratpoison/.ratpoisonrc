@@ -1,0 +1,10 @@
+definekey top F9  exec setxkbmap fr -option caps:escape
+definekey top F10 exec setxkbmap us altgr-intl -option caps:escape
+
+bind e exec emacs
+bind f exec firefox
+bind l exec suspend.sh
+
+set fwcolor grey
+
+exec wmname LG3D

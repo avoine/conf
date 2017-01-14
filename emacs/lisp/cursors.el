@@ -1,0 +1,43 @@
+(defun make-cursors-column (begin end)
+  (save-restriction
+    (narrow-to-region begin end)
+    (let ((col (current-column)))
+      (goto-char (point-max))
+      (while (not (= (line-number-at-pos) 2))
+        (forward-line -1)
+        (move-to-column col)
+        (evil-mc-make-cursor-here))
+      (forward-line -1)
+      (move-to-column col))))
+
+(defun make-cursors-search-ring (begin end)
+  (save-restriction
+    (narrow-to-region begin end)
+    (goto-char (point-max))
+    (let ((regexp (if evil-regexp-search
+                      (car-safe regexp-search-ring)
+                    (car-safe search-ring))))
+      (re-search-backward regexp nil t)
+      (let ((old-point (point)))
+        (while (re-search-backward regexp nil t)
+          (save-excursion
+            (goto-char old-point)
+            (evil-mc-make-cursor-here))
+          (setq old-point (point)))))))
+
+(defun make-cursors-dwim (&optional prefix)
+  (interactive "p")
+  (evil-mc-mode 1)
+  (let (begin end)
+    (if (not (evil-visual-state-p))
+        (save-excursion
+          (beginning-of-defun)
+          (setq begin (point))
+          (end-of-defun)
+          (setq end (point)))
+      (evil-exit-visual-state)
+      (setq begin evil-visual-beginning)
+      (setq end evil-visual-end))
+    (if (= prefix 4)
+        (make-cursors-column begin end)
+      (make-cursors-search-ring begin end))))
