@@ -4,7 +4,10 @@ definekey top F10 exec setxkbmap us altgr-intl -option caps:escape
 bind e exec emacs
 bind f exec firefox
 bind l exec suspend.sh
+bind C-j exec ratpoison -c "select Navigator"
+bind C-k exec ratpoison -c "select emacs"
 
 set fwcolor grey
+set winname name
 
 exec wmname LG3D
