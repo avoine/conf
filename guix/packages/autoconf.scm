@@ -1,4 +1,4 @@
-(define-module (mat autoconf)
+(define-module (autoconf)
   #:use-module (guix download)
   #:use-module (guix packages)
   #:use-module (guix utils)

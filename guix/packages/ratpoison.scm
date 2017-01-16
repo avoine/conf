@@ -1,4 +1,4 @@
-(define-module (mat ratpoison)
+(define-module (ratpoison)
   #:use-module (guix download)
   #:use-module (guix packages)
   #:use-module (guix utils)

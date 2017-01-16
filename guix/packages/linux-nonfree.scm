@@ -1,4 +1,4 @@
-(define-module (mat linux-nonfree)
+(define-module (linux-nonfree)
   #:use-module ((guix licenses) #:hide (zlib))
   #:use-module (gnu packages linux)
   #:use-module (guix build-system trivial)
