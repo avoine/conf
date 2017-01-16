@@ -1,0 +1,11 @@
+elpa/
+eshell/
+auto-save-list/
+ido.last
+smex-items
+tramp
+.mc-lists.el
+url/
+parrot
+network-security.data
+lisp/custom.el
