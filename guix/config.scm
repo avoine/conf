@@ -8,6 +8,8 @@
     (guix-service-type config =>
                        (guix-configuration
                         (inherit config)
+                        (substitute-urls '("https://mirror.hydra.gnu.org"
+                                           "https://bayfront.guixsd.org"))
                         (extra-options '("--gc-keep-derivations"
                                          "--gc-keep-outputs"))))))
 
@@ -24,12 +26,11 @@
                                   (timeout 1)))
 
   (kernel linux-rc-guix)
-  ;; (kernel-arguments '("acpi_backlight=video thinkpad_acpi.debug=0xffff pcie_aspm=force i915.enable_rc6=1 i915.enable_fbc=1"))
   (kernel-arguments '("acpi_backlight=video thinkpad_acpi.debug=0xffff pcie_aspm=force"))
 
   (initrd (lambda (file-systems . rest)
             (apply base-initrd file-systems
-                   #:load-modules? #t
+                   ;; #:load-modules? #t
                    #:virtio? #f
                    #:qemu-networking? #f
                    rest)))
