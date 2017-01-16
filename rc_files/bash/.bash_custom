@@ -1,0 +1,12 @@
+# read user modules
+export GUIX_PACKAGE_PATH=~/conf/guix/packages/
+
+export PATH=~/bin:$PATH
+
+# unlimited history
+HISTSIZE= HISTFILESIZE=
+
+alias reboot='sudo reboot'
+
+export EDITOR="emacs -nw"
+export TERM=xterm-256color
