@@ -21,7 +21,7 @@
   "h" 'make-cursors-dwim
   "i" (lambda () (interactive) (make-cursors-dwim 4))
   "j" (lambda () (interactive) (evil-mc-undo-all-cursors) (evil-mc-mode 0))
-  "k" 'kill-buffer
+  "k" (int (kill-buffer (current-buffer)))
   "K" 'kill-buffer-and-window
   "L" 'goto-line
   "n" 'ggtags-next-mark
