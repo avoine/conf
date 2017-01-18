@@ -1,0 +1,10 @@
+Host gerrit.parrot.biz gerrit
+    User m.othacehe
+    Port 29418
+    IdentityFile ~/.ssh/id_rsa
+
+Host */* 
+  ProxyCommand ssh $(dirname %h) -W $(basename %h):%p
+
+Host elbruz
+    ProxyCommand ssh othacehe.ddns.net -W 192.168.0.16:22
