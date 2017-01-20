@@ -23,5 +23,6 @@
 (define-key ido-common-completion-map
   (kbd "C-x e") 'ido-enter-eshell)
 
+(require 'magit-extras) ; TODO remove this when new magit version is released
 (define-key ido-common-completion-map
   (kbd "C-x g") 'ido-enter-magit-status)
