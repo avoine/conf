@@ -1,11 +1,19 @@
 (require 'erc)
 
+(setq my-keywords '("linux"
+                    "connman"
+                    "cuirass"
+                    "ratpoison"))
+
 (setq erc-join-buffer 'bury
       erc-current-nick-highlight-type 'nick
-      erc-echo-notices-in-minibuffer-flag t
       erc-track-exclude-server-buffer t
-      erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE")
-      erc-log-channels-directory "~/.irclogs/")
+      erc-keywords (mapcar (lambda (str) (concat "\\b" str "\\b")) my-keywords)
+      ;; all channels except private conversations (horrible hack)
+      erc-track-priority-faces-only (apply 'append erc-autojoin-channels-alist)
+      erc-track-faces-priority-list '(erc-current-nick-face erc-keyword-face)
+      erc-track-exclude-types '("JOIN" "PART" "QUIT" "NICK" "MODE"
+                                "324" "329" "332" "333" "353" "477"))
 
 (defun freenode-connect ()
   (interactive)
