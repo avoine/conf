@@ -1,5 +1,5 @@
 (use-modules (gnu)
-             (mat linux-nonfree))
+             (linux-nonfree))
 (use-service-modules desktop xorg networking dbus cups ssh)
 (use-package-modules admin certs ssh)
 
@@ -9,7 +9,8 @@
                        (guix-configuration
                         (inherit config)
                         (substitute-urls '("https://mirror.hydra.gnu.org"
-                                           "https://bayfront.guixsd.org"))
+                                           "https://bayfront.guixsd.org"
+                                           "http://192.168.0.16:8081"))
                         (extra-options '("--gc-keep-derivations"
                                          "--gc-keep-outputs"))))))
 

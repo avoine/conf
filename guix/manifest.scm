@@ -2,14 +2,14 @@
   (call-with-values (lambda ()
                       (specification->package+output spec)) list))
 
-(packages->manifest
- (map spec->packages
+(define packages-list
   '("acpi"
     "acpica"
     "alsa-utils"
     "autoconf"
     "automake"
     "bash"
+    "cuirass"
     "cmst"
     "connman"
     "cups"
@@ -86,4 +86,7 @@
     "xrdb"
     "yasm"
     "zip"
-    )))
+  ))
+
+(packages->manifest
+ (map spec->packages packages-list))
