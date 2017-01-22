@@ -10,7 +10,7 @@
                         (inherit config)
                         (substitute-urls '("https://mirror.hydra.gnu.org"
                                            "https://bayfront.guixsd.org"
-                                           "http://192.168.0.16:8081"))
+                                           "http://192.168.0.20:8081"))
                         (extra-options '("--gc-keep-derivations"
                                          "--gc-keep-outputs"))))))
 
@@ -26,7 +26,7 @@
   (bootloader (grub-configuration (device "/dev/sda")
                                   (timeout 1)))
 
-  (kernel linux-rc-guix)
+  (kernel linux-nonfree)
   (kernel-arguments '("acpi_backlight=video thinkpad_acpi.debug=0xffff pcie_aspm=force"))
 
   (initrd (lambda (file-systems . rest)
