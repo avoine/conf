@@ -18,4 +18,4 @@
     (#:proc . drv-list)
     (#:file . "/home/mathieu/conf/guix/cuirass/guix-drv.scm")))
 
-(list guix-github)
+(list guix-master)

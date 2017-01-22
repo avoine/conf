@@ -66,7 +66,7 @@
                              (x11-forwarding? #t)
                              (password-authentication? #f)
                              (permit-root-login 'without-password)))
-                   (guix-publish-service #:port 8081)
+                   (guix-publish-service #:port 8081 #:host "0.0.0.0")
                    (service cuirass-service-type
                             (cuirass-configuration
                              (interval 30)
