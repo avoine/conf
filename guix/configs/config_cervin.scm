@@ -15,7 +15,7 @@
                                          "--gc-keep-outputs"))))))
 
 (operating-system
-  (host-name "sagarmatha")
+  (host-name "cervin")
   (timezone "Europe/Paris")
   (locale "en_US.UTF-8")
   (sudoers-file (plain-file "sudoers"
