@@ -8,3 +8,7 @@ Host */*
 
 Host elbruz
     ProxyCommand ssh othacehe.ddns.net -W 192.168.0.20:22
+
+Host hermione
+  Hostname lassieur.org
+  Port 2222
