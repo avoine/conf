@@ -35,6 +35,7 @@
                                   (timeout 1)))
 
   (kernel linux-nonfree)
+  (kernel-arguments '("modprobe.blacklist=pcspkr"))
 
   (initrd (lambda (file-systems . rest)
             (apply base-initrd file-systems
