@@ -6,9 +6,11 @@ Host gerrit.parrot.biz gerrit
 Host */* 
   ProxyCommand ssh $(dirname %h) -W $(basename %h):%p
 
+Host cervin
+  Hostname othacehe.ddns.net
+
 Host elbruz
   ProxyCommand ssh othacehe.ddns.net -W 192.168.0.20:22
 
 Host hermione
-  Hostname lassieur.org
-  Port 2222
+  ProxyCommand ssh lassieur.org -W 192.168.0.91:22
