@@ -7,8 +7,6 @@
       vc-follow-symlinks t
       visible-bell 1
       truncate-lines t
-      tramp-auto-save-directory "~/emacs.d/tmp/tramp-autosave"
-      tramp-histfile-override "/dev/null"
       shell-file-name "bash"
       geiser-active-implementations '(guile)
       geiser-repl-use-other-window nil
