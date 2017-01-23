@@ -19,7 +19,7 @@
   (interactive)
   (erc :server "chat.freenode.net"
        :port "6667"
-       :nick "mothacehe"
+       :nick "Mathieu"
        :password "lolilol"
        :full-name "Mathieu OTHACEHE"))
 
