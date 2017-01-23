@@ -64,6 +64,7 @@
     "pulseaudio"
     "python"
     "python-wrapper"
+    "qemu"
     "qt"
     "ratpoison-xrandr"
     "rsync"
