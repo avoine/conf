@@ -1,7 +1,7 @@
 (use-modules (gnu)
              (linux-nonfree))
 (use-service-modules desktop xorg networking dbus cups ssh cuirass)
-(use-package-modules admin certs ssh)
+(use-package-modules admin certs ssh version-control)
 
 (define %my-base-services
   (modify-services %base-services
@@ -58,7 +58,7 @@
                 (home-directory "/home/mathieu"))
                %base-user-accounts))
 
-  (packages (cons* nss-certs openssh %base-packages))
+  (packages (cons* nss-certs openssh git %base-packages))
 
   (services (cons* (slim-service #:auto-login? #t #:default-user "mathieu")
                    (service wpa-supplicant-service-type wpa-supplicant)
