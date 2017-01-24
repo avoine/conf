@@ -25,7 +25,7 @@
   #:use-module (gnu packages gl)
   #:use-module (gnu packages icu4c)
   #:use-module (gnu packages gnuzilla)
-  #:use-module (gnu packages mit-krb5)
+  #:use-module (gnu packages kerberos)
   #:use-module (gnu packages video)
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu packages cups)
@@ -41,7 +41,7 @@
 (define-public firefox
   (package
     (name "firefox")
-    (version "50.1.0")
+    (version "51.0")
     (build-system gnu-build-system)
     (inputs `(("autoconf@2.13" ,autoconf-2.13)
               ("automake" ,automake)
@@ -83,7 +83,6 @@
               ("icu4c" ,icu4c)
               ("pixman" ,pixman)
               ("mesa" ,mesa)
-              ("mit-krb5" ,mit-krb5)
               ("nspr" ,nspr)
               ("nss" ,nss)
               ("sqlite" ,sqlite)
@@ -98,10 +97,10 @@
     (source
      (origin
        (method url-fetch)
-       (uri "https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/50.1.0/source/firefox-50.1.0.source.tar.xz")
+       (uri "https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/51.0/source/firefox-51.0.source.tar.xz")
        (sha256
         (base32
-         "1965dad701hf735xwpvgfm5y477l1crlazxf2mvhrvcypz69pfsl"))))
+         "1spbkv77d5wdns77qzp1jbfk7l8njhnsl0aqh4x63qr8kjkbfdb5"))))
     (arguments
      '(#:tests? #f
        #:validate-runpath? #f
