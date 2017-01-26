@@ -115,8 +115,14 @@
   (interactive)
   (switch-to-buffer (other-buffer)))
 
-(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
-(setq mu4e-alert-interesting-mail-query
+(setq mu4e-top-query
       "flag:unread AND (maildir:/gmail/INBOX OR maildir:/parrot/INBOX)")
+
+(defun mu4e-jump-top-query ()
+  (interactive)
+  (mu4e~headers-jump-to-maildir mu4e-top-query))
+
+(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+(setq mu4e-alert-interesting-mail-query mu4e-top-query)
 
 (mu4e 't)
