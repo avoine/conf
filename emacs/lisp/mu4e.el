@@ -1,6 +1,7 @@
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 (require 'smtpmail)
 (require 'mu4e)
+(require 'mu4e-alert)
 
 (global-set-key (kbd "C-c m") 'mu4e~headers-jump-to-maildir)
 
@@ -113,5 +114,9 @@
 (defun mu4e-quit ()
   (interactive)
   (switch-to-buffer (other-buffer)))
+
+(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+(setq mu4e-alert-interesting-mail-query
+      "flag:unread AND (maildir:/gmail/INBOX OR maildir:/parrot/INBOX)")
 
 (mu4e 't)
