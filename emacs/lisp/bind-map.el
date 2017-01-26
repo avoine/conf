@@ -9,7 +9,7 @@
 (bind-map-set-keys leader-map
   "1" (int (find-file "~/orgmode/home.org"))
   "2" 'my-run-geiser
-  "4" (lambda () (interactive) (mu4e-jump-top-query))
+  "4" (lambda () (interactive) (mu4e-alert-view-unread-mails))
   "a" 'alchemy-popup
   "b" 'browse-url
   "d" 'delete-trailing-whitespace
