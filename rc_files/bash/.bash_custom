@@ -1,5 +1,5 @@
 # read user modules
-export GUIX_PACKAGE_PATH=~/conf/guix/packages/
+export GUIX_PACKAGE_PATH=~/conf/guix/packages/:~/conf/guix/common_packages/
 
 export PATH=~/bin:$PATH
 
