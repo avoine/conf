@@ -10,11 +10,9 @@
      config =>
      (guix-configuration
       (inherit config)
-      (substitute-urls '("https://mirror.hydra.gnu.org"
-                         "https://bayfront.guixsd.org"
-                         "http://192.168.0.20:8081"))
-      (extra-options '("--gc-keep-derivations"
-                       "--gc-keep-outputs"))))))
+      (substitute-urls
+       (cons "http://192.168.0.20:8081"
+             (guix-configuration-substitute-urls config)))))))
 
 (operating-system
   (inherit %common-os)
