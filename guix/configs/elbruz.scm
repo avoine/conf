@@ -15,12 +15,12 @@
 
 (define %elbruz-base-services
   (cons*
-   (guix-publish-service #:port 8081 #:host "0.0.0.0")
+   (guix-publish-service #:host "0.0.0.0")
    (service cuirass-service-type
             (cuirass-configuration
              (interval 30)
              (use-substitutes? #t)
-             (port 80)
+             (port 8082)
              (env (list (string-append
                          "GUIX_PACKAGE_PATH="
                          (string-join
