@@ -32,6 +32,7 @@
                  org
                  python
                  theme
+                 tramp
                  windmove
                  whitespace)))
 

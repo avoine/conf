@@ -18,9 +18,3 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq tramp-ssh-controlmaster-options
-            "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-(with-eval-after-load 'tramp-sh
-  (push "/run/current-system/profile/bin" tramp-remote-path))
-
-(require 'tramp)
