@@ -20,8 +20,12 @@
             (cuirass-configuration
              (interval 30)
              (use-substitutes? #t)
-             (port 8082)
-             (env (list "GUIX_PACKAGE_PATH=/home/mathieu/conf/guix/packages"))
+             (port 80)
+             (env (string-append
+                   "GUIX_PACKAGE_PATH"
+                   (string-join
+                    '("/home/mathieu/conf/guix/packages"
+                      "/home/mathieu/conf/guix/common_packages") ":")))
              (specifications %cuirass-specs)))
    %common-services))
 
