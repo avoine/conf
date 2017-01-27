@@ -2,10 +2,10 @@
              (srfi srfi-1))
 (use-service-modules desktop)
 
-(primitive-load "config-common.scm")
+(primitive-load "common.scm")
 
 (define %cervin-base-services
-  (modify-services %common-services
+  (modify-services (operating-system-user-services %common-os)
     (guix-service-type
      config =>
      (guix-configuration

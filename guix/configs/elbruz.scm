@@ -1,7 +1,7 @@
 (use-modules (gnu))
 (use-service-modules desktop cuirass)
 
-(primitive-load "config-common.scm")
+(primitive-load "common.scm")
 
 (define %cuirass-specs
   ;; Cuirass specifications to build Guix.
@@ -27,7 +27,7 @@
                     '("/home/mathieu/conf/guix/packages"
                       "/home/mathieu/conf/guix/common_packages") ":")))
              (specifications %cuirass-specs)))
-   %common-services))
+   (operating-system-user-services %common-os)))
 
 (operating-system
   (inherit %common-os)
