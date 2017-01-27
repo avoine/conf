@@ -11,7 +11,7 @@
      (guix-configuration
       (inherit config)
       (substitute-urls
-       (cons "http://192.168.0.20:8081"
+       (cons "http://192.168.0.20"
              (guix-configuration-substitute-urls config)))))))
 
 (operating-system
