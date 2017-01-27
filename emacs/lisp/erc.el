@@ -5,6 +5,14 @@
                     "cuirass"
                     "ratpoison"))
 
+(setq erc-autojoin-channels-alist
+      '(("freenode.net"
+         "#ratpoison"
+         "#guix")
+        ("irc.parrot.com"
+         "#minidrones"
+         "#emacs")))
+
 (setq erc-join-buffer 'bury
       erc-current-nick-highlight-type 'nick
       erc-track-exclude-server-buffer t
@@ -29,11 +37,3 @@
            :port "7000"
            :nick "Mathieu"
            :full-name "Mathieu OTHACEHE"))
-
-(setq erc-autojoin-channels-alist
-      '(("freenode.net"
-         "#ratpoison"
-         "#guix")
-        ("irc.parrot.com"
-         "#minidrones"
-         "#emacs")))
