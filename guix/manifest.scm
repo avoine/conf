@@ -73,6 +73,7 @@
     "slim"
     "sqlite"
     "strace"
+    "tlp"
     "texi2html"
     "texinfo"
     "tree"
