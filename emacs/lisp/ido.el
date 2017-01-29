@@ -13,16 +13,21 @@
       ido-enable-flex-matching t)
 
 (require 'magit)
+(require 'magit-extras)
 
-(defun ido-enter-eshell ()
+(define-key ido-common-completion-map
+  (kbd "C-x g") 'ido-enter-magit-status)
+
+(defun ido-fallback-other-window ()
+  (interactive)
+  (find-file-other-window (concat ido-current-directory (car ido-matches))))
+
+(defun ido-open-other-window ()
   (interactive)
   (with-no-warnings
-    (setq ido-exit 'fallback fallback 'eshell-kill-maybe))
+    (setq ido-exit 'fallback
+          fallback 'ido-fallback-other-window))
   (exit-minibuffer))
 
 (define-key ido-common-completion-map
-  (kbd "C-x e") 'ido-enter-eshell)
-
-(require 'magit-extras) ; TODO remove this when new magit version is released
-(define-key ido-common-completion-map
-  (kbd "C-x g") 'ido-enter-magit-status)
+  (kbd "C-x o") 'ido-open-other-window)
