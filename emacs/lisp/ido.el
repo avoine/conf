@@ -20,13 +20,22 @@
 
 (defun ido-fallback-other-window ()
   (interactive)
-  (find-file-other-window (concat ido-current-directory (car ido-matches))))
+  (find-file-other-window
+   (concat ido-current-directory (car ido-matches))))
+
+(defun ido-fallback-other-buffer ()
+  (interactive)
+  (switch-to-buffer-other-window (car ido-matches)))
 
 (defun ido-open-other-window ()
   (interactive)
   (with-no-warnings
-    (setq ido-exit 'fallback
-          fallback 'ido-fallback-other-window))
+    (setq ido-exit 'fallback))
+  (cond
+   ((eq ido-cur-item 'file)
+    (setq fallback 'ido-fallback-other-window))
+   ((eq ido-cur-item 'buffer)
+    (setq fallback 'ido-fallback-other-buffer)))
   (exit-minibuffer))
 
 (define-key ido-common-completion-map
