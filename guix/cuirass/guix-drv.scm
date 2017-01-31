@@ -6,18 +6,7 @@
              (guix monads)
              (guix profiles)
              (gnu packages)
-             (gnu packages gnuzilla)
              (srfi srfi-1))
-
-(define (profile-packages)
-  (map manifest-entry-name
-       (manifest-entries
-        (profile-manifest "/var/guix/profiles/per-user/mathieu/guix-profile"))))
-
-(primitive-load "/home/mathieu/manifest.scm")
-
-(define (manifest-packages)
-  packages-list)
 
 (define (drv-package store package)
   (lambda ()
@@ -30,9 +19,11 @@
                         (parameterize ((%graft? #f))
                           (package-derivation store package #:graft? #f)))))))
 
+(primitive-load "/home/mathieu/conf/guix/packages.scm")
+
 (define (drv-list store arguments)
   (parameterize ((%graft? #f))
 		(map (lambda (package)
 		       (drv-package store package))
 		     (delete-duplicates!
-		      (map specification->package+output (manifest-packages))))))
+		      (map specification->package+output packages-list)))))
