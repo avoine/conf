@@ -14,6 +14,11 @@
        (manifest-entries
         (profile-manifest "/var/guix/profiles/per-user/mathieu/guix-profile"))))
 
+(primitive-load "/home/mathieu/manifest.scm")
+
+(define (manifest-packages)
+  packages-list)
+
 (define (drv-package store package)
   (lambda ()
     `((#:job-name . ,(string-append
@@ -30,4 +35,4 @@
 		(map (lambda (package)
 		       (drv-package store package))
 		     (delete-duplicates!
-		      (map specification->package+output (profile-packages))))))
+		      (map specification->package+output (manifest-packages))))))
