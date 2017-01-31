@@ -21,11 +21,8 @@
              (interval 30)
              (use-substitutes? #t)
              (port 8082)
-             (env (list (string-append
-                         "GUIX_PACKAGE_PATH="
-                         (string-join
-                          '("/home/mathieu/conf/guix/packages"
-                            "/home/mathieu/conf/guix/common_packages") ":"))))
+             (load-path '("/home/mathieu/conf/guix/packages"
+                          "/home/mathieu/conf/guix/common_packages"))
              (specifications %cuirass-specs)))
    (operating-system-user-services %common-os)))
 

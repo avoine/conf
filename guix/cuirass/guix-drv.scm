@@ -16,7 +16,11 @@
 
 (define (drv-package store package)
   (lambda ()
-    `((#:job-name . ,(string-append (package-name package) "-job"))
+    `((#:job-name . ,(string-append
+                      (package-name package)
+                      "-"
+                      (package-version package)
+                      "-job"))
       (#:derivation . ,(derivation-file-name
                         (parameterize ((%graft? #f))
                           (package-derivation store package #:graft? #f)))))))
