@@ -78,6 +78,7 @@
     "w3m"
     "wget"
     "wpa-supplicant"
+    "xbacklight"
     "xev"
     "xrandr"
     "xrdb"

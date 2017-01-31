@@ -6,6 +6,8 @@ bind f exec firefox
 bind l exec suspend.sh
 bind C-j exec ratpoison -c "select Navigator"
 bind C-k exec ratpoison -c "select emacs"
+bind Up exec xbacklight -inc 25
+bind Down exec xbacklight -dec 25
 
 set fwcolor grey
 set winname name
