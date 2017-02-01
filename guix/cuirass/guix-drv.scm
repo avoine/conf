@@ -2,6 +2,7 @@
              (guix store)
              (guix grafts)
              (guix packages)
+             (guix ui)
              (guix derivations)
              (guix monads)
              (guix profiles)
@@ -19,11 +20,15 @@
                         (parameterize ((%graft? #f))
                           (package-derivation store package #:graft? #f)))))))
 
-(primitive-load "/home/mathieu/conf/guix/packages.scm")
-
 (define (drv-list store arguments)
-  (parameterize ((%graft? #f))
-		(map (lambda (package)
-		       (drv-package store package))
-		     (delete-duplicates!
-		      (map specification->package+output packages-list)))))
+  (let* ((manifest
+         (load* "/home/mathieu/conf/guix/manifest.scm"
+                (make-user-module
+                 '((guix profiles) (gnu)))))
+         (packages
+          (map manifest-entry-item
+               (manifest-entries manifest))))
+    (parameterize ((%graft? #f))
+      (map (lambda (package)
+             (drv-package store package))
+           (delete-duplicates! packages)))))

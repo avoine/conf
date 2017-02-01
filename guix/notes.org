@@ -1,6 +1,3 @@
 * A faire
-** refresh
-*** home page vide
-*** token github
 ** offload
 *** tunnel
