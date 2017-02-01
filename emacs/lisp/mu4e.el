@@ -100,6 +100,8 @@
 (add-to-list-multiple 'mu4e-view-actions '(("browser" . mu4e-action-view-in-browser)
                                            ("xwidget" . mu4e-action-view-with-xwidget)))
 
+(add-to-list 'mu4e-view-fields :message-id t)
+
 (defun mu4e-view-message-no-split ()
   (interactive)
   (let ((mu4e-split-view 'f))
