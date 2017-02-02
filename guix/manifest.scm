@@ -53,6 +53,7 @@
     "mu"
     "ncdu"
     "ncurses"
+    "nmap"
     "nss"
     "ntp"
     "openssh"
