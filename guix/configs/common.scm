@@ -8,8 +8,8 @@
     (guix-service-type config =>
                        (guix-configuration
                         (inherit config)
-                        (substitute-urls '("https://mirror.hydra.gnu.org"
-                                           "https://bayfront.guixsd.org"))
+                        (substitute-urls '("https://bayfront.guixsd.org"
+                                           "https://mirror.hydra.gnu.org"))
                         (extra-options '("--gc-keep-derivations"
                                          "--gc-keep-outputs"))))))
 
