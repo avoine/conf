@@ -1,6 +1,6 @@
 (use-modules (gnu)
              (srfi srfi-1))
-(use-package-modules laptop)
+(use-package-modules linux)
 (use-service-modules desktop cuirass)
 
 (primitive-load "common.scm")
@@ -12,7 +12,7 @@
      (guix-configuration
       (inherit config)
       (substitute-urls
-       (cons "http://192.168.0.20"
+       (cons "http://192.168.0.51"
              (guix-configuration-substitute-urls config)))))
     (udev-service-type
      config =>

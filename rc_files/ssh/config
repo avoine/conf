@@ -7,10 +7,13 @@ Host */*
   ProxyCommand ssh $(dirname %h) -W $(basename %h):%p
 
 Host cervin
+  User mathieu
   Hostname othacehe.ddns.net
 
 Host elbruz
+  User mathieu
   ProxyCommand ssh othacehe.ddns.net -W 192.168.0.51:22
 
 Host hermione
+  User mathieu
   ProxyCommand ssh lassieur.org -W 192.168.0.91:22
