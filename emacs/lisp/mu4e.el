@@ -101,6 +101,7 @@
                                            ("xwidget" . mu4e-action-view-with-xwidget)))
 
 (add-to-list 'mu4e-view-fields :message-id t)
+(add-to-list 'mu4e-view-fields :user-agent t)
 
 (defun mu4e-view-message-no-split ()
   (interactive)
