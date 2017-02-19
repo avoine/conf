@@ -1,5 +1,6 @@
-(use-modules (gnu))
-(use-service-modules desktop cuirass)
+(use-modules (srfi srfi-1)
+             (gnu))
+(use-service-modules desktop cuirass networking)
 
 (primitive-load "common.scm")
 
@@ -25,11 +26,12 @@
              (interval 30)
              (use-substitutes? #t)
              (port 8082)
-             (load-path '("/home/mathieu/conf/guix/common_packages"))
-             ;; (load-path '("/home/mathieu/conf/guix/packages"
-             ;;              "/home/mathieu/conf/guix/common_packages"))
+             (load-path '("/home/mathieu/conf/guix/packages"
+                          "/home/mathieu/conf/guix/common_packages"))
              (specifications %cuirass-specs)))
-   (operating-system-user-services %common-os)))
+   (remove (lambda (service)
+             (eq? (service-kind service) connman-service-type))
+           (operating-system-user-services %common-os))))
 
 (operating-system
   (inherit %common-os)
