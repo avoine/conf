@@ -16,4 +16,4 @@ Host elbruz
 
 Host hermione
   User mathieu
-  ProxyCommand ssh lassieur.org -W 192.168.0.91:22
+  Hostname ord.lassieur.org
