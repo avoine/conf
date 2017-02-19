@@ -12,12 +12,11 @@
 (setq ido-auto-merge-work-directories-length -1
       ido-enable-flex-matching t)
 
-(require 'magit)
-(require 'magit-extras)
-
+;;magit
 (define-key ido-common-completion-map
   (kbd "C-x g") 'ido-enter-magit-status)
 
+;; other-window
 (defun ido-fallback-other-window ()
   (interactive)
   (find-file-other-window
@@ -40,3 +39,18 @@
 
 (define-key ido-common-completion-map
   (kbd "C-x o") 'ido-open-other-window)
+
+;; xterm
+(defun spawn-xterm ()
+  (interactive)
+  (let ((cmd (concat "xterm -e \" cd " default-directory " && /bin/bash\"")))
+    (start-process-shell-command "xterm" "xterm" cmd)))
+
+(defun ido-exit-with-xterm ()
+  (interactive)
+  (with-no-warnings
+    (setq ido-exit 'fallback fallback 'spawn-xterm))
+  (exit-minibuffer))
+
+(define-key ido-common-completion-map
+  (kbd "C-x x") 'ido-exit-with-xterm)
