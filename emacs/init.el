@@ -15,6 +15,7 @@
                  cursors
                  cmode
                  custom
+                 debbugs
                  ediff
                  elisp
                  erc

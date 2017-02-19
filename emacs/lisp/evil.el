@@ -18,6 +18,7 @@
 (setq emacs-state-modes
       '(cscope-list-entry-mode
         Info-mode
+        debbugs-gnu-mode
         pdir-mode
         Man-mode
         lsgit-mode
