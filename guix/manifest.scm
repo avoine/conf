@@ -71,6 +71,7 @@
     "rsync"
     "screen"
     "setxkbmap"
+    "shotwell"
     "slim"
     "sqlite"
     "strace"
