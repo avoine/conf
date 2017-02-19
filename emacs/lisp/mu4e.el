@@ -6,6 +6,7 @@
 (global-set-key (kbd "C-c m") 'mu4e~headers-jump-to-maildir)
 
 (setq mu4e-maildir "~/mail"
+      mail-user-agent 'mu4e-user-agent
       mu4e-headers-show-threads nil
       mu4e-use-fancy-chars t
       mu4e-get-mail-command "true"
