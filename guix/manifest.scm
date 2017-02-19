@@ -15,6 +15,7 @@
     "cups"
     "curl"
     "emacs"
+    "emacs-debbugs"
     "emacs-evil"
     "emacs-f"
     "emacs-flx"
