@@ -4,14 +4,24 @@
 (use-package-modules admin certs ssh version-control)
 
 (define %common-base-services
-  (modify-services %base-services
-    (guix-service-type config =>
-                       (guix-configuration
-                        (inherit config)
-                        (substitute-urls '("https://bayfront.guixsd.org"
-                                           "https://mirror.hydra.gnu.org"))
-                        (extra-options '("--gc-keep-derivations"
-                                         "--gc-keep-outputs"))))))
+  (remove (lambda (service)
+            (eq? (service-kind service) nscd-service-type))
+          (modify-services %base-services
+            (guix-service-type
+             config =>
+             (guix-configuration
+              (inherit config)
+              (substitute-urls '("https://bayfront.guixsd.org"
+                                 "https://mirror.hydra.gnu.org"))
+              (extra-options '("--gc-keep-derivations"
+                               "--gc-keep-outputs")))))))
+
+(define %common-special-files
+  `(("/bin/sh" ,(file-append bash "/bin/sh"))
+    ("/bin/bash" ,(file-append bash "/bin/bash"))
+    ;; gitolite update hook needs it
+    ("/usr/bin/perl" ,(file-append perl "/bin/perl"))
+    ("/usr/bin/env" ,(file-append coreutils "/bin/env"))))
 
 (define %common-os
   (operating-system
@@ -50,13 +60,16 @@
 
     (packages (cons* nss-certs openssh git %base-packages))
     (services (cons* (slim-service #:auto-login? #t #:default-user "mathieu")
+                     (service special-files-service-type %common-special-files)
                      (service wpa-supplicant-service-type wpa-supplicant)
                      (service openssh-service-type
                               (openssh-configuration
                                (x11-forwarding? #t)
                                (password-authentication? #f)
                                (permit-root-login 'without-password)))
-                     (connman-service)
+                     (service connman-service-type
+                              (connman-configuration
+                               (disable-vpn? #t)))
                      (dbus-service)
                      (ntp-service #:allow-large-adjustment? #t)
                      %common-base-services))))
