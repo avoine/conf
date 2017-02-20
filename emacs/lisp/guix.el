@@ -10,3 +10,5 @@
   (let ((buf (current-buffer)))
     (run-guile)
     (switch-to-buffer buf)))
+
+(add-to-list 'completion-ignored-extensions ".go")
