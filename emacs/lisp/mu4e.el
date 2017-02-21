@@ -46,7 +46,7 @@
                           (string-match "/gmail/"
                                         (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "m.othacehe@gmail.com")
-                  (user-full-name . "Mathieu OTHACEHE")
+                  (user-full-name . "Mathieu Othacehe")
                   (mu4e-sent-folder . "/gmail/sent/")
                   (mu4e-drafts-folder . "/gmail/drafts")
                   (mu4e-trash-folder . "/gmail/trash")
@@ -62,7 +62,7 @@
                           (string-match "/parrot/"
                                         (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "mathieu.othacehe@parrot.com")
-                  (user-full-name . "Mathieu OTHACEHE")
+                  (user-full-name . "Mathieu Othacehe")
                   (mu4e-sent-folder . "/parrot/sent")
                   (mu4e-drafts-folder . "/parrot/drafts")
                   (mu4e-trash-folder . "/parrot/trash")
