@@ -1,7 +1,7 @@
 (use-modules (gnu)
              (linux-nonfree))
 (use-service-modules desktop xorg networking dbus cups ssh)
-(use-package-modules admin certs ssh version-control)
+(use-package-modules admin bash certs perl ssh version-control)
 
 (define %common-base-services
   (remove (lambda (service)
@@ -19,7 +19,6 @@
 (define %common-special-files
   `(("/bin/sh" ,(file-append bash "/bin/sh"))
     ("/bin/bash" ,(file-append bash "/bin/bash"))
-    ;; gitolite update hook needs it
     ("/usr/bin/perl" ,(file-append perl "/bin/perl"))
     ("/usr/bin/env" ,(file-append coreutils "/bin/env"))))
 
