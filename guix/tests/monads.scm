@@ -1,3 +1,8 @@
+;; interesting links
+;; https://cgi.soic.indiana.edu/~c311/lib/exe/fetch.php?media=manymonads.pdf
+;; http://planet.racket-lang.org/package-source/toups/functional.plt/1/1/planet-docs/better-monads-guide/index.html
+;; http://okmij.org/ftp/Scheme/monad-in-Scheme.html
+
 (define (make-numbered-value tag val) (cons tag val))
 (define (nvalue-tag tv) (car tv))
 (define (nvalue-val tv) (cdr tv))
