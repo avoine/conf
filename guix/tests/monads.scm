@@ -29,7 +29,19 @@
   (m init-counter))
 
 (define (make-node val kids)
-       (>>=
-        incr
-        (lambda (counter)
-          (return (cons (make-numbered-value counter val) kids)))))
+  (>>=
+   incr
+   (lambda (counter)
+     (return (cons (make-numbered-value counter val) kids)))))
+
+(define (build-btree-r depth)
+  (if (zero? depth) (make-node depth '())
+      (>>=
+       (build-btree-r (- depth 1))
+       (lambda (left-branch)
+         (>>=
+          (build-btree-r (- depth 1))
+          (lambda (right-branch)
+            (make-node depth (list left-branch right-branch))))))))
+
+(runM (build-btree-r 3) 100)
