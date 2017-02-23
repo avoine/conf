@@ -22,3 +22,9 @@
 
 (define (runM m init-counter)
   (m init-counter))
+
+(define (make-node val kids)
+       (>>=
+        incr
+        (lambda (counter)
+          (return (cons (make-numbered-value counter val) kids)))))
