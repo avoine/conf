@@ -2,6 +2,14 @@
 (use-service-modules desktop xorg networking dbus cups ssh)
 (use-package-modules admin bash certs linux perl ssh version-control)
 
+(define %authorized-guix-keys
+  ;; List of authorized 'guix archive' keys.
+  (map (lambda (file)
+         (local-file (string-append "../keys/" file ".scm")))
+       (list "bayfront"
+             "hermione"
+             "elbruz")))
+
 (define %common-base-services
   (remove (lambda (service)
             (eq? (service-kind service) nscd-service-type))
@@ -13,6 +21,7 @@
               (substitute-urls '("https://bayfront.guixsd.org"
                                  "https://mirror.hydra.gnu.org"
                                  "http://cuirass.lassieur.org"))
+              (authorized-keys %authorized-guix-keys)
               (extra-options '("--gc-keep-derivations"
                                "--gc-keep-outputs")))))))
 
