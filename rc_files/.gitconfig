@@ -1,0 +1,9 @@
+[user]
+	email = m.othacehe@gmail.com
+	name = Mathieu Othacehe
+
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = m.othacehe@gmail.com
+	smtpServerPort = 587
