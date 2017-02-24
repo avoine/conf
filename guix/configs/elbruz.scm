@@ -1,4 +1,5 @@
 (use-modules (srfi srfi-1)
+             (srfi srfi-26)
              (gnu))
 (use-service-modules desktop cuirass networking)
 
@@ -16,20 +17,18 @@
 
 (define %elbruz-base-services
   ((compose
-     (cut
-      (remove (lambda (service)
-                (eq? (service-kind service) connman-service-type))
-              <>))
-     (cut
-      (modify-services <>
-        (guix-service-type
-         config =>
-         (guix-configuration
-          (inherit config)
-          (substitute-urls
-           (remove (lambda (s)
-                     (string=? "http://cuirass.lassieur.org" s))
-                   (guix-configuration-substitute-urls config))))))))
+    (cut remove (lambda (service)
+                  (eq? (service-kind service) connman-service-type))
+         <>)
+    (cut modify-services <>
+         (guix-service-type
+          config =>
+          (guix-configuration
+           (inherit config)
+           (substitute-urls
+            (remove (lambda (s)
+                      (string=? "http://cuirass.lassieur.org" s))
+                    (guix-configuration-substitute-urls config)))))))
    (cons*
     (static-networking-service "enp0s25"
                                "192.168.0.51"
