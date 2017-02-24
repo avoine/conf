@@ -1,7 +1,6 @@
-(use-modules (gnu)
-             (linux-nonfree))
+(use-modules (gnu))
 (use-service-modules desktop xorg networking dbus cups ssh)
-(use-package-modules admin bash certs perl ssh version-control)
+(use-package-modules admin bash certs linux perl ssh version-control)
 
 (define %common-base-services
   (remove (lambda (service)
@@ -33,7 +32,7 @@
                                              "mathieu ALL=(ALL) NOPASSWD: ALL")))
     (bootloader (grub-configuration (device "/dev/sda")
                                     (timeout 1)))
-    (kernel linux-nonfree)
+    (kernel linux-libre)
     (initrd (lambda (file-systems . rest)
               (apply base-initrd file-systems
                      ;; #:load-modules? #t
