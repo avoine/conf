@@ -8,13 +8,6 @@
 
 (define %cervin-base-services
   (modify-services (operating-system-user-services %common-os)
-    (guix-service-type
-     config =>
-     (guix-configuration
-      (inherit config)
-      (substitute-urls
-       (cons "http://192.168.0.51"
-             (guix-configuration-substitute-urls config)))))
     (udev-service-type
      config =>
      (udev-configuration
