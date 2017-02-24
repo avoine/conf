@@ -18,7 +18,7 @@
   (cons*
    (static-networking-service "enp0s25"
                               "192.168.0.51"
-                              #:gateway "192.168.0.1"
+                              #:gateway "192.168.0.254"
                               #:name-servers (list "8.8.8.8"))
    (guix-publish-service #:host "0.0.0.0")
    (service cuirass-service-type
