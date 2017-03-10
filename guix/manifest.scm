@@ -49,6 +49,7 @@
     "lzop"
     "magit"
     "make"
+    "mcron"
     "mesa"
     "mplayer"
     "mu"

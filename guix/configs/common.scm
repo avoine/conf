@@ -20,7 +20,7 @@
               (inherit config)
               (substitute-urls '("https://bayfront.guixsd.org"
                                  "https://mirror.hydra.gnu.org"
-                                 "http://cuirass.lassieur.org"))
+                                 "https://cuirass.lassieur.org"))
               (authorized-keys %authorized-guix-keys)
               (extra-options '("--gc-keep-derivations"
                                "--gc-keep-outputs")))))))
