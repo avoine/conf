@@ -10,3 +10,5 @@ alias reboot='sudo reboot'
 
 export EDITOR="emacs -nw"
 export TERM=xterm-256color
+
+export PATH=/gnu/store/r13jdppd8v55x84vzp9cg5xg85i0aqnw-firefox-50.1.0/bin/:$PATH
