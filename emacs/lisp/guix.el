@@ -1,7 +1,8 @@
 (add-to-list 'load-path "~/.guix-profile/share/emacs/site-lisp/")
 (require 'guix-autoloads nil t)
 
-(setq guix-directory "~/guix")
+(with-eval-after-load 'geiser-guile
+  (add-to-list 'geiser-guile-load-path "~/guix"))
 
 (add-hook 'scheme-mode-hook 'guix-devel-mode)
 
