@@ -30,7 +30,7 @@
                       (string=? "http://cuirass.lassieur.org" s))
                     (guix-configuration-substitute-urls config)))))))
    (cons*
-    (static-networking-service "enp0s25"
+    (static-networking-service "enp7s0f0"
                                "192.168.0.51"
                                #:gateway "192.168.0.254"
                                #:name-servers (list "8.8.8.8"))
@@ -47,5 +47,13 @@
 (operating-system
   (inherit %common-os)
   (host-name "elbruz")
+  (kernel linux-libre-4.4)
   (kernel-arguments '("modprobe.blacklist=pcspkr"))
+  (users (cons (user-account
+                (name "clement")
+                (group "users")
+                (supplementary-groups '("wheel" "netdev"
+                                        "audio" "video"))
+                (home-directory "/home/clement"))
+               (operating-system-users %common-os)))
   (services %elbruz-base-services))
