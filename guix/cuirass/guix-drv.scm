@@ -22,12 +22,17 @@
 
 (define (drv-list store arguments)
   (let* ((manifest
-         (load* "/home/mathieu/conf/guix/manifest.scm"
-                (make-user-module
-                 '((guix profiles) (gnu)))))
+          (load* "/home/mathieu/conf/guix/manifest.scm"
+                 (make-user-module
+                  '((guix profiles) (gnu)))))
+         (manifest-clem
+          (load* "/home/clement/manifest.scm"
+                 (make-user-module
+                  '((guix profiles) (gnu)))))
          (packages
           (map manifest-entry-item
-               (manifest-entries manifest))))
+               (append (manifest-entries manifest)
+                       (manifest-entries manifest-clem)))))
     (parameterize ((%graft? #f))
       (map (lambda (package)
              (drv-package store package))
