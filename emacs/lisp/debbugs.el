@@ -14,3 +14,5 @@
                          nil nil t nil nil)))
 
 (advice-add 'debbugs-gnu-select-report :around #'my-debbugs-gnu-select-report)
+
+(setq debbugs-gnu-send-mail-function 'smtpmail-send-it)
