@@ -1,6 +1,6 @@
 (use-modules (gnu))
 (use-service-modules desktop xorg networking dbus cups ssh)
-(use-package-modules admin bash certs linux perl ssh version-control)
+(use-package-modules admin bash certs linux perl ssh version-control rsync)
 
 (define %authorized-guix-keys
   ;; List of authorized 'guix archive' keys.
@@ -38,8 +38,7 @@
     (locale "en_US.UTF-8")
     (sudoers-file (plain-file "sudoers"
                               (string-append "root ALL=(ALL) ALL\n"
-                                             "%wheel ALL=(ALL) ALL\n"
-                                             "mathieu ALL=(ALL) NOPASSWD: ALL")))
+                                             "%wheel ALL=(ALL) NOPASSWD: ALL")))
     (bootloader (grub-configuration (device "/dev/sda")
                                     (timeout 1)))
     (kernel linux-libre)
@@ -66,7 +65,7 @@
                   (home-directory "/home/mathieu"))
                  %base-user-accounts))
 
-    (packages (cons* nss-certs openssh git %base-packages))
+    (packages (cons* nss-certs openssh rsync git %base-packages))
     (services (cons* (slim-service #:auto-login? #t #:default-user "mathieu")
                      (service special-files-service-type %common-special-files)
                      (service wpa-supplicant-service-type wpa-supplicant)
