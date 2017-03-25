@@ -2,24 +2,23 @@
              (linux-nonfree)
              (srfi srfi-1))
 (use-package-modules linux)
-(use-service-modules desktop cuirass)
+(use-service-modules desktop cuirass pm)
 
 (primitive-load "common.scm")
 
 (define %cervin-base-services
-  (modify-services (operating-system-user-services %common-os)
-    (udev-service-type
-     config =>
-     (udev-configuration
-      (inherit config)
-      (rules
-       (cons* tlp
-              (udev-configuration-rules config)))))))
+  (cons
+   (service tlp-service-type (tlp-configuration))
+   (operating-system-user-services %common-os)))
 
 (operating-system
   (inherit %common-os)
   (host-name "cervin")
   (kernel linux-nonfree)
   (kernel-arguments '("acpi_backlight=video thinkpad_acpi.debug=0xffff pcie_aspm=force"))
-  (packages (cons tlp (operating-system-packages %common-os)))
+  (initrd (lambda (file-systems . rest)
+            (apply raw-initrd file-systems
+                   #:helper-packages (list e2fsck/static)
+                   rest)))
+  (packages (operating-system-packages %common-os))
   (services %cervin-base-services))
