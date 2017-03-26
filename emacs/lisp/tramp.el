@@ -4,4 +4,6 @@
 (with-eval-after-load 'tramp-sh
   (push "/run/current-system/profile/bin" tramp-remote-path))
 
+(setq tramp-histfile-override "/dev/null")
+
 (require 'tramp)
