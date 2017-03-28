@@ -49,6 +49,14 @@
   (host-name "elbruz")
   (kernel linux-libre-4.4)
   (kernel-arguments '("modprobe.blacklist=pcspkr"))
+  (file-systems (cons (file-system
+                        (mount-point "/tmp")
+                        (device "none")
+                        (title 'device)
+                        (type "tmpfs")
+                        (check? #f))
+                      (operating-system-file-systems %common-os)))
+
   (users (cons (user-account
                 (name "clement")
                 (group "users")
