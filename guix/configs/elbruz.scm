@@ -3,7 +3,7 @@
              (gnu))
 (use-service-modules desktop cuirass networking)
 
-(primitive-load "common.scm")
+(primitive-load "/home/mathieu/conf/guix/configs/common.scm")
 
 (define %cuirass-specs
   ;; Cuirass specifications to build Guix.

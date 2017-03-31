@@ -4,7 +4,7 @@
 (use-package-modules linux)
 (use-service-modules desktop cuirass pm)
 
-(primitive-load "common.scm")
+(primitive-load "/home/mathieu/conf/guix/configs/common.scm")
 
 (define %cervin-base-services
   (cons
