@@ -21,6 +21,7 @@
     "emacs-f"
     "emacs-flx"
     "emacs-guix"
+    "emacs-hydra"
     "emacs-ido-ubiquitous"
     "emacs-magit-popup"
     "emacs-markdown-mode"
