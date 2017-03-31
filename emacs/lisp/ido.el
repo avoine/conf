@@ -54,3 +54,16 @@
 
 (define-key ido-common-completion-map
   (kbd "C-x x") 'ido-exit-with-xterm)
+
+(defun call-dired ()
+  (interactive)
+  (dired default-directory))
+
+(defun ido-exit-with-dired ()
+  (interactive)
+  (with-no-warnings
+    (setq ido-exit 'fallback fallback 'call-dired))
+  (exit-minibuffer))
+
+(define-key ido-common-completion-map
+  (kbd "C-x d") 'ido-exit-with-dired)
