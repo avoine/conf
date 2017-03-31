@@ -38,6 +38,7 @@
     "gettext"
     "git"
     "git:send-email"
+    "gparted"
     "guile-json"
     "global"
     "gnutls"
