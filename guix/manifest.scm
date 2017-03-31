@@ -62,6 +62,7 @@
     "ncdu"
     "ncurses"
     "nmap"
+    "ntfs-3g"
     "nss"
     "ntp"
     "openssh"
