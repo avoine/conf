@@ -33,6 +33,7 @@
     "emacs-smex"
     "ethtool"
     "file"
+    "firefox@50"
     "font-dejavu"
     "gcc-toolchain"
     "geiser"
