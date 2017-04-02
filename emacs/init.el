@@ -11,7 +11,6 @@
                '(packages
                  base
                  build
-                 bindings
                  cursors
                  cmode
                  custom
@@ -20,6 +19,7 @@
                  elisp
                  erc
                  evil
+                 bindings
                  guix
                  file-mode
                  functions
