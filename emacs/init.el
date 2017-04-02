@@ -11,7 +11,7 @@
                '(packages
                  base
                  build
-                 bind-map
+                 bindings
                  cursors
                  cmode
                  custom
