@@ -54,6 +54,7 @@
     "libgcrypt"
     "libtool"
     "linux-nonfree"
+    "lm-sensors"
     "lzop"
     "magit"
     "make"
