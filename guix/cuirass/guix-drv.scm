@@ -26,7 +26,7 @@
                  (make-user-module
                   '((guix profiles) (gnu)))))
          (manifest-clem
-          (load* "/home/clement/manifest.scm"
+          (load* "/home/clement/.clem/guix/manifest.scm"
                  (make-user-module
                   '((guix profiles) (gnu)))))
          (packages
