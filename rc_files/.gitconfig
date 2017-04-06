@@ -7,3 +7,5 @@
 	smtpServer = smtp.gmail.com
 	smtpUser = m.othacehe@gmail.com
 	smtpServerPort = 587
+[color]
+	ui = auto
