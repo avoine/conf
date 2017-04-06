@@ -31,6 +31,11 @@
   ("G" gerrit-popup "gerrit")
   ("p" pdir-search "pdir"))
 
+(defhydra my-hydra-tramp (:color blue)
+  "tramp"
+  ("b" tramp-cleanup-all-buffers "clean buffers")
+  ("c" tramp-cleanup-this-connection "clean this"))
+
 (defhydra my-hydra-base (:color blue)
   "base"
   ("2" my-run-geiser "geiser")
@@ -50,6 +55,7 @@
   ("r" rgrep "rgrep")
   ("R" revert-buffer "revert")
   ("t" generic-find-tag "find")
+  ("T" my-hydra-tramp/body "tramp")
   ("w" my-hydra-parrot/body "parrot")
   ("x" guix "guix")
   (";" comment-or-uncomment-region "comment"))
