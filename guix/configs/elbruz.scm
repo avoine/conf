@@ -48,7 +48,10 @@
   (inherit %common-os)
   (host-name "elbruz")
   (kernel linux-libre-4.4)
-  (kernel-arguments '("modprobe.blacklist=pcspkr"))
+  (kernel-arguments '("modprobe.blacklist=pcspkr"
+                      "console=tty0"
+                      "console=ttyS0,115200n8"
+                      "earlyprintk=serial,ttyS0,115200"))
   (file-systems (cons (file-system
                         (mount-point "/tmp")
                         (device "none")
