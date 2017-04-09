@@ -79,7 +79,7 @@
     "python-wrapper"
     "qemu"
     "qt"
-    "ratpoison-rc"
+    "ratpoison"
     "rsync"
     "screen"
     "setxkbmap"
