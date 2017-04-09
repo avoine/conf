@@ -80,3 +80,18 @@
                      (dbus-service)
                      (ntp-service #:allow-large-adjustment? #t)
                      %common-base-services))))
+
+(define %common-nonfree-os
+  (operating-system
+    (inherit %common-os)
+    (kernel linux-nonfree)
+    (initrd base-initrd)))
+
+(define %common-nonfree-minimal-os
+  (operating-system
+    (inherit %common-os)
+    (kernel linux-nonfree-minimal)
+    (initrd (lambda (file-systems . rest)
+              (apply raw-initrd file-systems
+                     #:helper-packages (list e2fsck/static)
+                     rest)))))
