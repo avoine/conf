@@ -14,6 +14,7 @@
       x-select-enable-primary t)
 
 (global-font-lock-mode t)
+(global-page-break-lines-mode t)
 (show-paren-mode)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
