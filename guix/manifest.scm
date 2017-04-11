@@ -27,6 +27,7 @@
     "emacs-markdown-mode"
     "emacs-mu4e-alert"
     "emacs-paredit"
+    "emacs-page-break-lines"
     "emacs-pdf-tools"
     "emacs-rainbow-delimiters"
     "emacs-s"
