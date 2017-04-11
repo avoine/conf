@@ -15,6 +15,8 @@
   ;; (inherit %common-os)
   (inherit %common-nonfree-os)
   (host-name "cervin")
-  (kernel-arguments '("acpi_backlight=video thinkpad_acpi.debug=0xffff pcie_aspm=force"))
+  (kernel-arguments '("acpi_backlight=video"
+                      "thinkpad_acpi.debug=0xffff"
+                      "pcie_aspm=force"))
   (packages (operating-system-packages %common-os))
   (services %cervin-base-services))
