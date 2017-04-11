@@ -36,8 +36,15 @@
   ("b" tramp-cleanup-all-buffers "clean buffers")
   ("c" tramp-cleanup-this-connection "clean this"))
 
+(defhydra my-hydra-erc (:color blue)
+  "tramp"
+  ("f" freenode-connect "freenode connect")
+  ("g" (switch-to-buffer "#guix") "guix")
+  ("r" (switch-to-buffer "#ratpoison") "ratpoison"))
+
 (defhydra my-hydra-base (:color blue)
   "base"
+  ("1" my-hydra-erc/body "erc")
   ("2" my-run-geiser "geiser")
   ("4" mu4e-alert-view-unread-mails "mail")
   ("5" find-cervin)
