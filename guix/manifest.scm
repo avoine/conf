@@ -32,6 +32,7 @@
     "emacs-rainbow-delimiters"
     "emacs-s"
     "emacs-smex"
+    "emacs-strace-mode"
     "ethtool"
     "file"
     "firefox@50"
