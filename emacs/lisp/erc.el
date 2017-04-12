@@ -27,13 +27,13 @@
   (interactive)
   (erc :server "chat.freenode.net"
        :port "6667"
-       :nick "Mathieu"
+       :nick "m-o"
        :password "lolilol"
-       :full-name "Mathieu OTHACEHE"))
+       :full-name "Mathieu Othacehe"))
 
 (defun parrot-connect ()
   (interactive)
   (erc-tls :server "jinan.parrot.biz"
            :port "7000"
            :nick "Mathieu"
-           :full-name "Mathieu OTHACEHE"))
+           :full-name "Mathieu Othacehe"))
