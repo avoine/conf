@@ -88,6 +88,7 @@
     "setxkbmap"
     "shotwell"
     "slim"
+    "speedtest-cli"
     "sqlite"
     "strace"
     "texi2html"
