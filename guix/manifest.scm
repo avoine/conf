@@ -52,6 +52,7 @@
     "htop"
     "icu4c"
     "isync"
+    "imagemagick"
     "libevent"
     "libgcrypt"
     "libtool"
