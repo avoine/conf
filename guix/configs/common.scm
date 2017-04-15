@@ -18,9 +18,9 @@
              config =>
              (guix-configuration
               (inherit config)
-              (substitute-urls '("https://bayfront.guixsd.org"
-                                 "https://mirror.hydra.gnu.org"
-                                 "https://cuirass.lassieur.org"))
+              (substitute-urls '("https://cuirass.lassieur.org"
+                                 "https://bayfront.guixsd.org"
+                                 "https://mirror.hydra.gnu.org"))
               (authorized-keys %authorized-guix-keys)
               (extra-options '("--gc-keep-derivations"
                                "--gc-keep-outputs")))))))
