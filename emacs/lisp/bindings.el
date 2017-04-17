@@ -42,8 +42,50 @@
   ("g" (switch-to-buffer "#guix") "guix")
   ("r" (switch-to-buffer "#ratpoison") "ratpoison"))
 
+(defun backlight (arg)
+
+  (defconst sys-br "/sys/class/backlight/intel_backlight/brightness")
+  (defconst sys-max-br "/sys/class/backlight/intel_backlight/max_brightness")
+
+  (defun read-file (file)
+    (string-to-number
+     (replace-regexp-in-string
+      "\n$" ""
+      (shell-command-to-string
+       (format "cat %s" file)))))
+
+  (defun percentage ()
+    (let ((br (read-file sys-br))
+          (max-br (read-file sys-max-br)))
+      (round (* (/ br (float max-br)) 100.0))))
+
+  (interactive)
+  (let* ((val (substring arg 1 nil))
+         (cmd (cond
+               ((string-prefix-p "+" arg)
+                (format "xbacklight -inc %s" val))
+               ((string-prefix-p "-" arg)
+                (format "xbacklight -dec %s" val))
+               ((string-prefix-p "=" arg)
+                (format "xbacklight -set %s" val)))))
+    (shell-command cmd)
+    (message (number-to-string (percentage)))))
+
+(defhydra my-hydra-backlight ()
+  "backlight"
+  ("1" (backlight "=10") "10")
+  ("2" (backlight "=25") "25")
+  ("3" (backlight "=50") "50")
+  ("4" (backlight "=75") "75")
+  ("5" (backlight "=100") "100")
+  ("h" (backlight "-1") "down 1")
+  ("j" (backlight "-10") "down 10")
+  ("k" (backlight "+10") "up 10")
+  ("l" (backlight "+1") "up 1"))
+
 (defhydra my-hydra-base (:color blue)
   "base"
+  ("0" my-hydra-backlight/body "backlight")
   ("1" my-hydra-erc/body "erc")
   ("2" my-run-geiser "geiser")
   ("4" mu4e-alert-view-unread-mails "mail")
