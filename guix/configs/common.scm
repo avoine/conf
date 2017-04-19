@@ -1,6 +1,7 @@
 (use-modules (gnu))
 (use-service-modules desktop xorg networking dbus cups ssh)
 (use-package-modules admin bash certs linux perl ssh version-control rsync)
+(use-modules (linux-nonfree))
 
 (define %authorized-guix-keys
   ;; List of authorized 'guix archive' keys.
