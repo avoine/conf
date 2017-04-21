@@ -8,6 +8,7 @@
 (setq erc-autojoin-channels-alist
       '(("freenode.net"
          "#ratpoison"
+         "#guile"
          "#guix")
         ("irc.parrot.com"
          "#minidrones"
