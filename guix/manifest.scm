@@ -35,7 +35,7 @@
     "emacs-strace-mode"
     "ethtool"
     "file"
-    "firefox@50"
+    "firefox@52"
     "font-dejavu"
     "gcc-toolchain"
     "geiser"
