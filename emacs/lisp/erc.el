@@ -1,8 +1,21 @@
 (require 'erc)
 
+(defun erc-ghost-m-o ()
+  "Run this in an ERC buffer."
+  (interactive)
+  (let ((nick "m-o")
+        (pass "lolilol"))
+    (erc-message "PRIVMSG" (format "NickServ GHOST %s %s" nick pass))
+    (erc-cmd-NICK nick)
+    (erc-message "PRIVMSG" (format "NickServ identify %s %s" nick pass))))
+
+
 (setq my-keywords '("linux"
                     "connman"
                     "cuirass"
+                    "git"
+                    "bootloader"
+                    "syslinux"
                     "ratpoison"))
 
 (setq erc-autojoin-channels-alist

@@ -38,8 +38,10 @@
 
 (defhydra my-hydra-erc (:color blue)
   "tramp"
-  ("f" freenode-connect "freenode connect")
+  ("f" freenode-connect  "freenode connect")
+  ("n" (erc-ghost-m-o)   "ghost")
   ("g" (switch-to-buffer "#guix") "guix")
+  ("u" (switch-to-buffer "#guile") "guile")
   ("r" (switch-to-buffer "#ratpoison") "ratpoison"))
 
 (defun backlight (arg)
