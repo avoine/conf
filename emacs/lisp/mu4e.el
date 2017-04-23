@@ -21,6 +21,7 @@
       mu4e-split-view 'vertical
       mu4e-headers-visible-columns 100
       mu4e-context-policy 'pick-first
+      mu4e-compose-dont-reply-to-self t
       mu4e-html2text-command "w3m -dump -T text/html"
       mu4e-get-mail-command "mbsync -a"
       mu4e-headers-auto-update t
