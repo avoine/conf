@@ -47,7 +47,9 @@
 (operating-system
   (inherit %common-os)
   (host-name "elbruz")
-  (kernel linux-libre-4.4)
+  (kernel linux-libre)
+  ;; (kernel linux-libre-4.4)
+  ;;(kernel linux-nonfree-elbruz) ;; ----> maybe does not boot !!
   (kernel-arguments '("modprobe.blacklist=pcspkr"
                       "console=tty0"
                       "console=ttyS0,115200n8"
