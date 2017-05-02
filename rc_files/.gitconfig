@@ -1,6 +1,7 @@
 [user]
 	email = m.othacehe@gmail.com
 	name = Mathieu Othacehe
+	signingkey = 31769CA6
 
 [sendemail]
 	smtpEncryption = tls
@@ -9,3 +10,6 @@
 	smtpServerPort = 587
 [color]
 	ui = auto
+
+[commit]
+        gpgsign = true
