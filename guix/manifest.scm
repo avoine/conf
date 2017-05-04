@@ -18,6 +18,7 @@
     "emacs"
     "emacs-debbugs"
     "emacs-evil"
+    "emacs-exwm"
     "emacs-f"
     "emacs-flx"
     "emacs-guix"
