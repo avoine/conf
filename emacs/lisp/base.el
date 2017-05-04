@@ -16,6 +16,7 @@
 (global-font-lock-mode t)
 (global-page-break-lines-mode t)
 (show-paren-mode)
+(blink-cursor-mode -1)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
