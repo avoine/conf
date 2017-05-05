@@ -17,6 +17,7 @@
   (host-name "cervin")
   (kernel-arguments '("acpi_backlight=video"
                       "thinkpad_acpi.debug=0xffff"
+		      "modprobe.blacklist=pcspkr"
                       "pcie_aspm=force"))
   (packages (operating-system-packages %common-os))
   (services %cervin-base-services))
