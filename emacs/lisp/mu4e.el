@@ -73,6 +73,10 @@
                   (smtpmail-smtp-server . "smtp.aswsp.com")
                   (smtpmail-smtp-service. 587)))))
 
+(setq mu4e-user-mail-address-list
+      '("m.othacehe@gmail.com"
+        "mathieu.othacehe@parrot.com"))
+
 (add-hook 'mu4e-view-mode-hook 'mu4e-mark-region-code)
 
 (defun linux-apply (msg)
@@ -105,12 +109,6 @@
 
 (add-to-list 'mu4e-view-fields :message-id t)
 (add-to-list 'mu4e-view-fields :user-agent t)
-
-;; This variable is set to 'user-mail-address (empty during init ?)
-;; and used to remove self from To: and Cc: fields.
-(setq mu4e-user-mail-address-list
-      '("m.othacehe@gmail.com"
-        "mathieu.othacehe@parrot.com"))
 
 (defun mu4e-view-message-no-split ()
   (interactive)
