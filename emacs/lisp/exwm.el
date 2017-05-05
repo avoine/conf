@@ -33,6 +33,7 @@
   (my-global-cmd (format "s-%d" i)
                  `(lambda ()
                     (interactive)
+                    (scroll-bar-mode -1)
                     (exwm-workspace-switch-create ,i))))
 
 ;; Make class name the buffer name.
