@@ -20,9 +20,15 @@
 (defmacro my-global-shell-cmd (key cmd)
   `(my-global-cmd ,key (int (start-process-shell-command ,cmd nil ,cmd))))
 
+(defun switch-to-firefox ()
+  (let ((buffer (get-buffer "Firefox")))
+    (if buffer (switch-to-buffer buffer)
+      (message "No Firefox buffer."))))
+
 (my-global-cmd "s-d" (int (shell-command "date")))
 (my-global-cmd "s-a" (int (shell-command "acpi")))
 (my-global-cmd "s-w" #'exwm-workspace-switch)
+(my-global-cmd "s-j" (int (switch-to-firefox)))
 
 (my-global-shell-cmd "s-c" "xterm")
 (my-global-shell-cmd "s-C" "cmst")
