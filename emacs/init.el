@@ -10,6 +10,7 @@
        (mapcar 'symbol-name
                '(packages
                  base
+                 battery
                  build
                  cursors
                  cmode
