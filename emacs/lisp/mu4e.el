@@ -22,6 +22,7 @@
       mu4e-headers-visible-columns 100
       mu4e-context-policy 'pick-first
       mu4e-compose-dont-reply-to-self t
+      mu4e-compose-keep-self-cc nil
       mu4e-html2text-command "w3m -dump -T text/html"
       mu4e-get-mail-command "mbsync -a"
       mu4e-headers-auto-update t
@@ -104,6 +105,12 @@
 
 (add-to-list 'mu4e-view-fields :message-id t)
 (add-to-list 'mu4e-view-fields :user-agent t)
+
+;; This variable is set to 'user-mail-address (empty during init ?)
+;; and used to remove self from To: and Cc: fields.
+(setq mu4e-user-mail-address-list
+      '("m.othacehe@gmail.com"
+        "mathieu.othacehe@parrot.com"))
 
 (defun mu4e-view-message-no-split ()
   (interactive)
