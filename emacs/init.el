@@ -18,6 +18,7 @@
                  ediff
                  elisp
                  erc
+                 exwm
                  evil
                  bindings
                  guix
