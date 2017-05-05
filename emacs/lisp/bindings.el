@@ -44,35 +44,6 @@
   ("u" (switch-to-buffer "#guile") "guile")
   ("r" (switch-to-buffer "#ratpoison") "ratpoison"))
 
-(defun backlight (arg)
-
-  (defconst sys-br "/sys/class/backlight/intel_backlight/brightness")
-  (defconst sys-max-br "/sys/class/backlight/intel_backlight/max_brightness")
-
-  (defun read-file (file)
-    (string-to-number
-     (replace-regexp-in-string
-      "\n$" ""
-      (shell-command-to-string
-       (format "cat %s" file)))))
-
-  (defun percentage ()
-    (let ((br (read-file sys-br))
-          (max-br (read-file sys-max-br)))
-      (round (* (/ br (float max-br)) 100.0))))
-
-  (interactive)
-  (let* ((val (substring arg 1 nil))
-         (cmd (cond
-               ((string-prefix-p "+" arg)
-                (format "xbacklight -inc %s" val))
-               ((string-prefix-p "-" arg)
-                (format "xbacklight -dec %s" val))
-               ((string-prefix-p "=" arg)
-                (format "xbacklight -set %s" val)))))
-    (shell-command cmd)
-    (message (number-to-string (percentage)))))
-
 (defhydra my-hydra-backlight ()
   "backlight"
   ("1" (backlight "=10") "10")
