@@ -70,6 +70,7 @@
   ("g" magit-status "git")
   ("k" my-kill-buffer "kill")
   ("L" goto-line "line")
+  ("m" rename-buffer "rename")
   ("n" ggtags-next-mark "ggtags-next")
   ("o" rotate-windows)
   ("p" generic-pop-stack "pop")
