@@ -33,8 +33,7 @@
 (my-global-cmd "s-d" (int (shell-command "date")))
 (my-global-cmd "s-a" (int (shell-command "acpi")))
 (my-global-cmd "s-w" #'exwm-workspace-switch)
-(my-global-cmd "s-j" (int (switch-to-firefox)))
-(my-global-cmd "s-f" (int (my-run-once "firefox" "Firefox")))
+(my-global-cmd "s-j" (int (my-run-once "firefox" "Firefox")))
 
 (my-global-shell-cmd "s-c" "xterm")
 (my-global-shell-cmd "s-C" "cmst")
