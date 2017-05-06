@@ -13,3 +13,16 @@
     (switch-to-buffer buf)))
 
 (add-to-list 'completion-ignored-extensions ".go")
+
+(defun guix-update-commit-msg ()
+  (interactive)
+  (let* ((diff  (buffer-string))
+         (match (string-match "name \"\\(.*?\\)\"" diff))
+         (name  (match-string-no-properties 1 diff))
+         (match (string-match "\+.*version \"\\(.*?\\)\"" diff))
+         (version (match-string-no-properties 1 diff))
+         (match (string-match "gnu/packages/\\(.*?\.scm\\)" diff))
+         (package (match-string-no-properties 1 diff)))
+    (kill-new (format "gnu: %s: Update to %s.
+
+* gnu/packages/%s (%s): Update to %s." name version package name version))))
