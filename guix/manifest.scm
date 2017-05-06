@@ -75,6 +75,8 @@
     "openssl"
     "pavucontrol"
     "perl"
+    "pinentry"
+    "pinentry-tty"
     "pkg-config"
     "powertop"
     "pulseaudio"
