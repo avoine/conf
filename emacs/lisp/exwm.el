@@ -20,19 +20,24 @@
 (defmacro my-global-shell-cmd (key cmd)
   `(my-global-cmd ,key (int (start-process-shell-command ,cmd nil ,cmd))))
 
-(defun switch-to-firefox ()
-  (let ((buffer (get-buffer "Firefox")))
-    (if buffer (switch-to-buffer buffer)
-      (message "No Firefox buffer."))))
+(defun my-run-once (command buffer-name)
+  (let* ((buffers (mapcar 'cdr exwm--id-buffer-alist))
+         (found (some (lambda (buffer)
+                        (and (string= (buffer-name buffer) buffer-name)
+                             buffer))
+                      buffers)))
+    (if found
+        (switch-to-buffer found)
+      (start-process-shell-command command nil command))))
 
 (my-global-cmd "s-d" (int (shell-command "date")))
 (my-global-cmd "s-a" (int (shell-command "acpi")))
 (my-global-cmd "s-w" #'exwm-workspace-switch)
 (my-global-cmd "s-j" (int (switch-to-firefox)))
+(my-global-cmd "s-f" (int (my-run-once "firefox" "Firefox")))
 
 (my-global-shell-cmd "s-c" "xterm")
 (my-global-shell-cmd "s-C" "cmst")
-(my-global-shell-cmd "s-f" "firefox")
 (my-global-shell-cmd "s-l" "suspend.sh")
 
 (dotimes (i 10)
