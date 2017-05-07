@@ -56,6 +56,7 @@
     "libevent"
     "libgcrypt"
     "libtool"
+    "libreoffice"
     "linux-nonfree"
     "lm-sensors"
     "lzop"
