@@ -4,8 +4,6 @@
 (with-eval-after-load 'geiser-guile
   (add-to-list 'geiser-guile-load-path "~/guix"))
 
-(add-hook 'scheme-mode-hook 'guix-devel-mode)
-
 (defun my-run-geiser ()
   (interactive)
   (let ((buf (current-buffer)))
