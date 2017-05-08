@@ -97,6 +97,7 @@
     "texi2html"
     "texinfo"
     "tree"
+    "unrar"
     "unzip"
     "vim"
     "vlc"
