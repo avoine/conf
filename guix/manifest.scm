@@ -96,6 +96,7 @@
     "strace"
     "texi2html"
     "texinfo"
+    "transmission"
     "tree"
     "unrar"
     "unzip"
