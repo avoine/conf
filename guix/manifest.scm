@@ -97,6 +97,7 @@
     "texi2html"
     "texinfo"
     "transmission"
+    "transmission:gui"
     "tree"
     "unrar"
     "unzip"
