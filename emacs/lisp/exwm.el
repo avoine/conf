@@ -38,6 +38,7 @@
 (my-global-shell-cmd "s-c" "cmst")
 (my-global-shell-cmd "s-k" "xterm")
 (my-global-shell-cmd "s-l" "suspend.sh")
+(my-global-shell-cmd "s-p" "pavucontrol")
 
 (dotimes (i 10)
   (my-global-cmd (format "s-%d" i)
