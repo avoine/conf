@@ -35,8 +35,8 @@
 (my-global-cmd "s-w" #'exwm-workspace-switch)
 (my-global-cmd "s-j" (int (my-run-once "firefox" "Firefox")))
 
-(my-global-shell-cmd "s-c" "xterm")
-(my-global-shell-cmd "s-C" "cmst")
+(my-global-shell-cmd "s-c" "cmst")
+(my-global-shell-cmd "s-k" "xterm")
 (my-global-shell-cmd "s-l" "suspend.sh")
 
 (dotimes (i 10)
