@@ -17,7 +17,7 @@
   "d" 'delete-trailing-whitespace
   "c" 'cleanup-dwim
   "e" 'eval-buffer
-  "f" 'cscope-find-this-file
+  "f" 'freenode-connect
   "g" 'magit-status
   "G" 'gerrit-popup
   "h" 'make-cursors-dwim
