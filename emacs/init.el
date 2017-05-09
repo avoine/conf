@@ -21,7 +21,7 @@
                  erc
                  exwm
                  evil
-                 bindings
+                 bind-map
                  guix
                  file-mode
                  functions
