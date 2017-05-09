@@ -54,6 +54,9 @@
 (exwm-config-ido)
 (exwm-enable)
 
+;; compliance with bind-map
+(push ?\C-\  exwm-input-prefix-keys)
+
 ;; compliance with smex
 (my-local-cmd "M-x" 'smex)
 (my-local-cmd "M-X" 'smex-major-mode-commands)
