@@ -1,7 +1,7 @@
 (bind-map leader-map
-  :keys ("\C- ")
-  :evil-keys ("SPC")
-  :evil-states (normal motion visual))
+          :keys ("C-SPC")
+          :evil-keys ("SPC")
+          :evil-states (normal motion visual))
 
 (defmacro int (&rest body)
   `(lambda () (interactive) ,@body))
