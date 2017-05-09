@@ -51,16 +51,11 @@
           (lambda ()
             (exwm-workspace-rename-buffer exwm-class-name)))
 
-;; Remove C-c prefix key for xterm.
-(add-hook 'exwm-manage-finish-hook
-          (lambda ()
-            (when (and exwm-class-name
-                       (string= exwm-class-name "XTerm"))
-              (setq-local exwm-input-prefix-keys '(?\C-x)))))
-
 (exwm-config-ido)
 (exwm-enable)
 
 ;; compliance with smex
 (my-local-cmd "M-x" 'smex)
 (my-local-cmd "M-X" 'smex-major-mode-commands)
+
+(my-local-cmd "C-q" 'exwm-input-send-next-key)
