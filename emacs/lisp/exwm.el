@@ -52,6 +52,14 @@
           (lambda ()
             (exwm-workspace-rename-buffer exwm-class-name)))
 
+;; allow the use of C-c in xterm
+(add-hook 'exwm-manage-finish-hook
+          (lambda ()
+            (when (and exwm-class-name
+                       (string= exwm-class-name "XTerm"))
+              (setq-local exwm-input-prefix-keys
+                          (remove ?\C-c exwm-input-prefix-keys)))))
+
 (exwm-config-ido)
 (exwm-enable)
 

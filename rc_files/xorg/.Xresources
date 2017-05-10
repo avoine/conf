@@ -33,7 +33,3 @@ xterm*ttyModes: erase ^?
 xterm*VT100*translations:       #override \
 <Key>BackSpace: string(0x7f)
 xterm*backarrowKeyIseRASE:      TRUE
-
-! allow to send C-c (as C-c C-q C-c) to Xterm, from exwm
-! see https://github.com/ch11ng/exwm/wiki#how-to-send-c-c-to-term
-xterm*allowSendEvents: true

@@ -51,3 +51,7 @@
            :port "7000"
            :nick "Mathieu"
            :full-name "Mathieu Othacehe"))
+
+;; allow the use of C-c in xterm
+(define-key erc-track-minor-mode-map (kbd "C-c C-SPC") nil)
+(define-key erc-track-minor-mode-map (kbd "C-SPC C-c") 'erc-track-switch-buffer)
