@@ -7,7 +7,9 @@
   `(lambda () (interactive) ,@body))
 
 (bind-map-set-keys leader-map
-  "<f3>" (int (switch-to-buffer "#guile"))
+  "<f1>" (int (backlight "=10"))
+  "<f2>" (int (backlight "=25"))
+  "<f3>" (int (backlight "=50"))
   "<f4>" (int (switch-to-buffer "#guix"))
   "1" (int (find-file "~/orgmode/home.org"))
   "2" 'my-run-geiser
