@@ -17,7 +17,8 @@
   "d" 'delete-trailing-whitespace
   "c" 'cleanup-dwim
   "e" 'eval-buffer
-  "f" 'freenode-connect
+  "f" 'ag-dired
+  "F" 'freenode-connect
   "g" 'magit-status
   "G" 'gerrit-popup
   "h" 'make-cursors-dwim
@@ -30,7 +31,7 @@
   "o" 'rotate-windows
   "p" 'generic-pop-stack
   "q" 'quick-calc
-  "r" 'rgrep
+  "r" 'ag
   "R" 'revert-buffer
   "s" 'pdir-search
   "t" 'generic-find-tag

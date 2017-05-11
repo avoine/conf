@@ -16,6 +16,7 @@
     "cups"
     "curl"
     "emacs"
+    "emacs-ag"
     "emacs-debbugs"
     "emacs-evil"
     "emacs-exwm"
