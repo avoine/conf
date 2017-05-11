@@ -11,6 +11,7 @@
       geiser-active-implementations '(guile)
       geiser-repl-use-other-window nil
       ad-redefinition-action 'accept
+      ag-highlight-search t
       x-select-enable-primary t)
 
 (global-font-lock-mode t)
