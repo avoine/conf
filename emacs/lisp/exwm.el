@@ -27,7 +27,9 @@
                              buffer))
                       buffers)))
     (if found
-        (switch-to-buffer found)
+        (if (string= (buffer-name (current-buffer)) (buffer-name found))
+            (switch-to-buffer (other-buffer))
+          (switch-to-buffer found))
       (start-process-shell-command command nil command))))
 
 (my-global-cmd "s-d" (int (shell-command "date")))
