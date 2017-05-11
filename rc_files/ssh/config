@@ -3,6 +3,11 @@ Host gerrit.parrot.biz gerrit
     Port 29418
     IdentityFile ~/.ssh/id_rsa
 
+Host woody.parrot.biz gerrit
+    User git
+    Port 4222
+    IdentityFile ~/.ssh/id_rsa
+
 Host */* 
   ProxyCommand ssh $(dirname %h) -W $(basename %h):%p
 
