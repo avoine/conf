@@ -7,6 +7,8 @@
   `(lambda () (interactive) ,@body))
 
 (bind-map-set-keys leader-map
+  "<f3>" (int (switch-to-buffer "#guile"))
+  "<f4>" (int (switch-to-buffer "#guix"))
   "1" (int (find-file "~/orgmode/home.org"))
   "2" 'my-run-geiser
   "4" (int (mu4e-alert-view-unread-mails))
