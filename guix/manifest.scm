@@ -88,6 +88,7 @@
     "qemu"
     "qt"
     "ratpoison"
+    "reptyr"
     "rsync"
     "screen"
     "setxkbmap"
