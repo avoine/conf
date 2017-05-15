@@ -110,7 +110,7 @@
     "wget"
     "wpa-supplicant"
     "xbacklight"
-    "xdg-open"
+    "xdg-utils"
     "xev"
     "xrandr"
     "xrdb"
