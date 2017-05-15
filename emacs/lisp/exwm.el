@@ -60,9 +60,8 @@
 
 (defun rotate-xterm ()
   (interactive)
-  (let* ((buffers (xterm-buffer-list))
-         (buffer-length (length buffers)))
-    (if (eq buffer-length 0)
+  (let ((buffers (xterm-buffer-list)))
+    (if (null buffers)
         (message "No xterm buffer.")
       (switch-to-buffer (next-elt buffers)))))
 
