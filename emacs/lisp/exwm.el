@@ -58,12 +58,29 @@
      (lambda (a b)
        (string< (buffer-name a) (buffer-name b))))))
 
+(defun display-buffer-list ()
+  (let ((buffers (xterm-buffer-list)))
+    (message
+     (concat
+      (propertize "Buffer: " 'face 'minibuffer-prompt)
+      "{ "
+      (string-join
+       (mapcar (lambda (buffer)
+                 (let ((name (buffer-name buffer)))
+                   (if (eq (current-buffer) buffer)
+                       (propertize name 'face 'bold)
+                     name)))
+               buffers)
+       " | ")
+      " } "))))
+
 (defun rotate-xterm ()
   (interactive)
   (let ((buffers (xterm-buffer-list)))
     (if (null buffers)
         (message "No xterm buffer.")
-      (switch-to-buffer (next-elt buffers)))))
+      (switch-to-buffer (next-elt buffers))
+      (display-buffer-list))))
 
 
 
