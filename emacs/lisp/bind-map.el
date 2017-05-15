@@ -57,3 +57,7 @@
    (cond ((bound-and-true-p ggtags-mode) 'ggtags-prev-mark)
          ((string= major-mode "scheme-mode") 'geiser-pop-symbol-stack)
          (t (error "wrong mode")))))
+
+(with-eval-after-load 'ag
+  (define-key ag-mode-map (kbd "M-p") (function previous-error-no-select))
+  (define-key ag-mode-map (kbd "M-n") (function next-error-no-select)))
