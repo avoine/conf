@@ -64,7 +64,7 @@
          (buffer-length (length buffers)))
     (if (eq buffer-length 0)
         (message "No xterm buffer.")
-      (switch-to-buffer (next-elt-or-first buffers)))))
+      (switch-to-buffer (next-elt buffers)))))
 
 
 
