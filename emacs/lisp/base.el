@@ -14,6 +14,11 @@
       ag-highlight-search t
       x-select-enable-primary t)
 
+(setq-default
+ mode-line-format
+ (cons '(:eval (number-to-string exwm-workspace-current-index))
+       mode-line-format))
+
 (global-font-lock-mode t)
 (global-page-break-lines-mode t)
 (show-paren-mode)
