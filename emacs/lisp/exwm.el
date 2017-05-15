@@ -1,5 +1,6 @@
 (require 'exwm)
 (require 'exwm-config)
+(require 'dash) ; for -keep
 
 (defmacro int (&rest body)
   `(lambda () (interactive) ,@body))
@@ -32,14 +33,50 @@
           (switch-to-buffer found))
       (start-process-shell-command command nil command))))
 
+
+;;;
+;;; Xterm cycle.
+;;;
+
+(defun next-elt (list)
+  (defun right-elt (list)
+    (and (cdr list)
+         (if (eq (current-buffer) (car list))
+             (cadr list)
+           (right-elt (cdr list)))))
+
+  (or (right-elt list) (car list)))
+
+(defun xterm-buffer-list ()
+  (let ((buffers (mapcar 'cdr exwm--id-buffer-alist)))
+    (sort
+     (-keep (lambda (buffer)
+              (and (with-current-buffer buffer
+                     (string= exwm-class-name "XTerm"))
+                   buffer))
+            buffers)
+     (lambda (a b)
+       (string< (buffer-name a) (buffer-name b))))))
+
+(defun rotate-xterm ()
+  (interactive)
+  (let* ((buffers (xterm-buffer-list))
+         (buffer-length (length buffers)))
+    (if (eq buffer-length 0)
+        (message "No xterm buffer.")
+      (switch-to-buffer (next-elt-or-first buffers)))))
+
+
+
 (my-global-cmd "s-d" (int (shell-command "date")))
 (my-global-cmd "s-a" (int (shell-command "acpi")))
+(my-global-cmd "s-l" 'rotate-xterm)
 (my-global-cmd "s-w" #'exwm-workspace-switch)
 (my-global-cmd "s-j" (int (my-run-once "firefox" "Firefox")))
 
 (my-global-shell-cmd "s-c" "cmst")
 (my-global-shell-cmd "s-k" "xterm")
-(my-global-shell-cmd "s-l" "suspend.sh")
+(my-global-shell-cmd "s-L" "suspend.sh")
 (my-global-shell-cmd "s-p" "pavucontrol")
 
 (dotimes (i 10)
